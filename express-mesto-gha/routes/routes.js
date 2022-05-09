@@ -13,7 +13,12 @@ const { AVATAR_REGEX } = require('../constants');
 const auth = require('../middlewares/auth'); // авторизация
 
 const app = express();
-
+// Краш-тест сервера
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 // роуты, не требующие авторизации
 //  регистрация
 app.post('/signup', celebrate({

@@ -281,3 +281,40 @@ sudo certbot --nginx
 sudo systemctl reload nginx
 sudo certbot --nginx
 sudo nano /etc/nginx/sites-available/default
+sudo nano /etc/nginx/sites-available/default             
+sudo nginx -t
+sudo systemctl reload nginx
+sudo certbot --nginx
+sudo nginx -t
+sudo systemctl reload nginx 
+sudo certbot --nginx
+sudo nano /etc/nginx/sites-available/default
+sudo nginx -t
+sudo systemctl reload nginx
+sudo certbot --nginx
+sudo nano /etc/nginx/sites-available/default
+git status
+git remote -v
+git add .
+git status
+git commit -m "last step: add https settongs to nginx"
+git remote set-url origin https://github.com/AnnSyh/reserve-server-version-react-mesto-api-full.git
+git remote -v
+git remote set-url origin git@github.com:AnnSyh/reserve-server-version-react-mesto-api-full.git
+git remote set-url git@github.com:AnnSyh/reserve-server-version-react-mesto-api-full.git 
+git remote 
+git remote add origin origin https://github.com/AnnSyh/reserve-server-version-react-mesto-api-full.git
+git remote add origin https://github.com/AnnSyh/reserve-server-version-react-mesto-api-full.git
+git remote -v
+git status
+git commit -m "first commit"
+git config --global user.email "annsyharevskaya@yandex.ru"
+git config --global user.name "ann syharevskaya"
+git commit -m "last step: add https"
+git status 
+git remote -v
+git push origin main
+git status
+git remote add origin https://github.com/AnnSyh/reserve-server-version-react-mesto-api-full.git
+git branch -M main
+git push -u origin main
