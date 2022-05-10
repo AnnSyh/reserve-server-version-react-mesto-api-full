@@ -318,3 +318,9 @@ git status
 git remote add origin https://github.com/AnnSyh/reserve-server-version-react-mesto-api-full.git
 git branch -M main
 git push -u origin main
+pm2 start app.js
+pm2 start app.js 
+npm start
+ls
+cd express-mesto-gha/
+npm start
