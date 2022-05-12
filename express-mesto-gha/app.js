@@ -1,5 +1,6 @@
 // const path = require('path');
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const BodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -22,6 +23,8 @@ async function main() {
     console.log(`App listening on port ${PORT}`); // Если всё работает, консоль покажет, какой порт приложение слушает
   });
 }
+//cors
+app.use(cors());
 
 // миддлвары
 app.use(BodyParser.json()); // подключили миддлвару кот достает значения из тела запроса
