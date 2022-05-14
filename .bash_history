@@ -324,3 +324,59 @@ npm start
 ls
 cd express-mesto-gha/
 npm start
+ls
+ls
+cd express-mesto-gha/
+pm2 kill
+pm2 start app
+cd ../
+pm2 start app
+ls
+cd express-mesto-gha/
+ls
+pm2 start app
+ls
+cd ../
+ls
+cd express-mesto-gha/
+npm run start
+npm start
+git status
+git add .
+git status
+"git restore --staged .
+git status
+"git restore --staged .
+git status
+git restore --staged all
+git checkout .
+git status
+git restore --staged .
+git status
+git checkout .
+git status
+git checkout .
+git status
+git status
+git add .
+git commit -m "change front utils/auth.js and api.js"
+git pull origin main
+ls
+cd express-mesto-gha/
+ls
+cd express-mesto-gha/
+npm i cors
+npm start
+cd express-mesto-gha/
+npm start
+ls
+cd express-mesto-gha/
+npm start
+git status
+ls
+cd express-mesto-gha/
+LS
+ls
+ls
+cd express-mesto-gha/
+npm start
