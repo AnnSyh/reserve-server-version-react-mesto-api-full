@@ -22,11 +22,10 @@ async function main() {
   app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`); // Если всё работает, консоль покажет, какой порт приложение слушает
   });
-
+}
 // миддлвары
 
 // cors
-// app.use(cors());
 const cors = (req, res, next) => {
   const { origin } = req.headers;
 	console.log('origin = ', origin);
