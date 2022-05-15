@@ -1,6 +1,6 @@
 // const path = require('path');
 const express = require('express');
-const cors = require('cors');
+
 const mongoose = require('mongoose');
 const BodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -22,40 +22,35 @@ async function main() {
   app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`); // Если всё работает, консоль покажет, какой порт приложение слушает
   });
-}
-// cors
-// app.use(cors());
-app.use(cors({
-  origin: 'https://mesto.frontend.annsyh.nomoredomains.work/',
-  credentials: true,
-}));
-
-
-// const cors = (req, res, next) => {
-
-//   const { origin } = req.headers;
-// 	console.log(origin)
-//   const { method } = req;
-//   const requestHeaders = req.headers['access-control-request-headers'];
-//   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-
-//   res.header('Access-Control-Allow-Origin', origin);
-//   res.header('Access-Control-Allow-Credentials', true);
-
-//   if (method === 'OPTIONS') {
-//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-//     res.header('Access-Control-Allow-Headers', requestHeaders);
-
-//     return res.end();
-//   }
-
-//   return next();
-// };
-
-// app.use(cors());
-
 
 // миддлвары
+
+// cors
+// app.use(cors());
+const cors = (req, res, next) => {
+  const { origin } = req.headers;
+	console.log('origin = ', origin);
+  const { method } = req;
+  const requestHeaders = req.headers['access-control-request-headers'];
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
+  res.header('Access-Control-Allow-Origin', origin);
+  res.header('Access-Control-Allow-Credentials', true);
+
+  if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    res.header('Access-Control-Allow-Headers', requestHeaders);
+
+    return res.end();
+  }
+
+  return next();
+};
+
+app.use(cors);
+
+
+
 app.use(BodyParser.json()); // подключили миддлвару кот достает значения из тела запроса
 app.use(auth); // авторизация
 
