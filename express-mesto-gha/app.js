@@ -1,6 +1,26 @@
 // const path = require('path');
 const express = require('express');
 // const cors = require('cors');
+const cors = (req, res, next) => {
+
+  const { origin } = req.headers;
+	console.log(origin)
+  const { method } = req;
+  const requestHeaders = req.headers['access-control-request-headers'];
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
+  res.header('Access-Control-Allow-Origin', origin);
+  res.header('Access-Control-Allow-Credentials', true);
+
+  if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    res.header('Access-Control-Allow-Headers', requestHeaders);
+
+    return res.end();
+  }
+
+  return next();
+};
 const mongoose = require('mongoose');
 const BodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -26,26 +46,7 @@ async function main() {
 //cors
 // app.use(cors());
 
-const cors = (req, res, next) => {
 
-  const { origin } = req.headers;
-	console.log(origin)
-  const { method } = req;
-  const requestHeaders = req.headers['access-control-request-headers'];
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-
-  res.header('Access-Control-Allow-Origin', origin);
-  res.header('Access-Control-Allow-Credentials', true);
-
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-
-    return res.end();
-  }
-
-  return next();
-};
 
 // миддлвары
 app.use(BodyParser.json()); // подключили миддлвару кот достает значения из тела запроса
